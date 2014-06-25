@@ -17,7 +17,6 @@ Puppet::Type.newtype(:sysctl) do
     def insync?(is)
       if resource[:apply] == :true
         @live_value = provider.live_value
-        puts("should:#{should} is:#{is} live_value:#{@live_value}")
         equal(should, is) and equal(should, @live_value)
       else
         equal(should, is)
