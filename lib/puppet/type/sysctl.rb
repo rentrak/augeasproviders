@@ -39,7 +39,7 @@ Puppet::Type.newtype(:sysctl) do
     end
 
     def equal(a, b)
-      nil not in (a, b) and a.gsub(/\s+/, ' ') == b.gsub(/\s+/, ' ')
+      not [a, b].include?(nil) and a.gsub(/\s+/, ' ') == b.gsub(/\s+/, ' ')
     end
   end
 
